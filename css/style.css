@@ -19,7 +19,6 @@ a {
 }
 
 .menu li {
-  position: relative;
   list-style: none;
 }
 
@@ -33,11 +32,12 @@ a {
   padding: 0;
 }
 
-.menu__list li:hover .sub-menu {
+.menu__list li:hover .sub-menu-container {
   display: flex;
 }
 
 .menu__list > li:hover .menu__link {
+  height: 77px;
   border-bottom: 3px solid #ffa500;
 }
 
@@ -48,14 +48,24 @@ a {
   height: 80px;
 }
 
-.sub-menu {
+.sub-menu-container {
   display: none;
   position: absolute;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.sub-menu {
+  display: flex;
   justify-content: space-between;
   height: 240px;
   width: 920px;
   left: -188px;
-  background-color: #c4c3c3;
+  background-color: #ffffff;
 }
 
 .sub-menu ul {
