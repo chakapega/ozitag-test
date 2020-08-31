@@ -38,11 +38,15 @@ li {
   padding: 0;
 }
 
+.menu__list > li {
+  height: 100%;
+}
+
 .menu__list > li > a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
+  height: 100%;
   box-sizing: border-box;
   font-size: 18px;
   font-weight: bold;
@@ -143,4 +147,72 @@ li {
 
 .menu-background-container_hidden {
   display: none;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .menu {
+    margin-left: 8%;
+    height: 60px;
+    width: 600px;
+  }
+
+  .menu__list {
+    width: 540px;
+  }
+
+  .menu__list > li > a {
+    font-size: 16px;
+  }
+
+  .sub-menu-element-two {
+    height: 220px;
+    width: 680px;
+  }
+
+  .sub-menu-element-two__list > li {
+    margin-top: 10px;
+    margin-left: 28px;
+  }
+
+  .sub-menu-element-two__list > li:first-child {
+    margin-left: 15px;
+  }
+
+  .sub-menu-element-two__list > li > a {
+    font-size: 16px;
+  }
+
+  .sub-sub-sub-menu-element-two__list > li {
+    margin: 8px 0 8px 0;
+    font-size: 14px;
+  }
+
+  .sub-menu-element-four {
+    height: 50px;
+    width: 680px;
+  }
+
+  .sub-menu-element-four__list > li > a {
+    font-size: 16px;
+  }
+
+  .sub-menu-element-four__list > li {
+    margin-top: 10px;
+    margin-left: 28px;
+  }
+
+  .sub-menu-element-four__list > li:first-child {
+    margin-left: 15px;
+  }
+
+  .menu-background-container {
+    height: calc(100vh - 60px);
+    top: 60px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .menu {
+    display: none;
+  }
 }
