@@ -122,3 +122,18 @@ li {
 .sub-menu-element-four__list > li {
   margin-top: 15px;
 }
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .menu {
+    margin-left: 12%;
+    width: 70%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .menu {
+    margin-left: 10%;
+    width: 80%;
+    height: 60px;
+  }
+}
