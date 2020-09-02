@@ -7,21 +7,51 @@ const mobileMenuButtonIcon = document.querySelector(".mobile-menu-button-icon");
 const mobileMenuButtonIconClose = document.querySelector(
   ".mobile-menu-button-icon-close"
 );
+const menu = document.querySelector(".menu");
+let isTouchDevice = false;
+
+const setSizeMenu = (orientation) => {
+  if (orientation === "portrait-primary") {
+    menu.style.height = "60%";
+  } else {
+    menu.style.height = "70%";
+  }
+};
+
+const sensorDeviceDefinition = () => {
+  return "ontouchstart" in window;
+};
+
+window.onload = () => {
+  const orientation = window.screen.orientation.type;
+
+  setSizeMenu(orientation);
+
+  isTouchDevice = sensorDeviceDefinition();
+};
 
 menuItemElementTwo.addEventListener("mouseenter", () => {
-  subMenuElementTwo.classList.remove("sub-menu-element-two_hidden");
+  if (!isTouchDevice) {
+    subMenuElementTwo.classList.remove("sub-menu-element-two_hidden");
+  }
 });
 
 menuItemElementTwo.addEventListener("mouseleave", () => {
-  subMenuElementTwo.classList.add("sub-menu-element-two_hidden");
+  if (!isTouchDevice) {
+    subMenuElementTwo.classList.add("sub-menu-element-two_hidden");
+  }
 });
 
 menuItemElementFour.addEventListener("mouseenter", () => {
-  subMenuElementFour.classList.remove("sub-menu-element-four_hidden");
+  if (!isTouchDevice) {
+    subMenuElementFour.classList.remove("sub-menu-element-four_hidden");
+  }
 });
 
 menuItemElementFour.addEventListener("mouseleave", () => {
-  subMenuElementFour.classList.add("sub-menu-element-four_hidden");
+  if (!isTouchDevice) {
+    subMenuElementFour.classList.add("sub-menu-element-four_hidden");
+  }
 });
 
 mobileMenuButton.addEventListener("click", () => {
@@ -29,4 +59,10 @@ mobileMenuButton.addEventListener("click", () => {
   mobileMenuButtonIconClose.classList.toggle(
     "mobile-menu-button-icon-close_hidden"
   );
+
+  if (menu.style.display === "none" || menu.style.display === "") {
+    menu.style.display = "flex";
+  } else {
+    menu.style.display = "none";
+  }
 });
