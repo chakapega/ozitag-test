@@ -173,19 +173,27 @@ li {
     left: 0;
     top: 60px;
     width: 100%;
+    height: auto;
   }
 
   .menu__list {
     flex-direction: column;
+    justify-content: start;
   }
 
   .menu__list > li {
+    height: 42px;
     width: 100%;
   }
 
   .menu__list > li > a {
+    height: 42px;
     justify-content: start;
     padding-left: 5%;
+  }
+
+  .menu__list > li:hover > a {
+    background-color: transparent;
   }
 
   .menu__list .menu__item-element-two {
@@ -246,6 +254,14 @@ li {
     padding: 0;
   }
 
+  .sub-menu-element-two__list > li {
+    margin-top: 0;
+  }
+
+  .sub-menu-element-two__list > li > a {
+    margin-left: 10%;
+  }
+
   .menu__button-element-two {
     display: block;
     width: 26px;
@@ -265,11 +281,11 @@ li {
     background-size: cover;
   }
 
-  .sub-sub-sub-menu-element-two__list {
+  .sub-sub-menu-element-two {
     display: none;
   }
 
-  .sub-sub-sub-menu-element-four__list {
+  .sub-sub-menu-element-four {
     display: none;
   }
 }

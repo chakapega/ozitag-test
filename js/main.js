@@ -13,33 +13,13 @@ const menuButtonElementTwo = document.querySelector(
 const menu = document.querySelector(".menu");
 let isTouchDevice = false;
 
-const setSizeMenu = (screenWidth, orientation) => {
-  if (orientation === "portrait-primary" && screenWidth < 768) {
-    menu.style.height = "60%";
-  } else if (orientation === "landscape-primary" && screenWidth < 768) {
-    menu.style.height = "70%";
-  }
-};
-
 const sensorDeviceDefinition = () => {
   return "ontouchstart" in window;
 };
 
 window.onload = () => {
-  const screenWidth = window.innerWidth;
-  const orientation = window.screen.orientation.type;
-
-  setSizeMenu(screenWidth, orientation);
-
   isTouchDevice = sensorDeviceDefinition();
 };
-
-window.addEventListener("orientationchange", () => {
-  const screenWidth = window.innerWidth;
-  const orientation = window.screen.orientation.type;
-
-  setSizeMenu(screenWidth, orientation);
-});
 
 menuItemElementTwo.addEventListener("mouseenter", () => {
   if (!isTouchDevice) {
@@ -84,7 +64,9 @@ menuButtonElementTwo.addEventListener("click", () => {
     subMenuElementTwo.style.display === ""
   ) {
     subMenuElementTwo.style.display = "flex";
+    menuItemElementTwo.style.height = '292px'
   } else {
     subMenuElementTwo.style.display = "none";
+    menuItemElementTwo.style.height = '42px'
   }
 });
