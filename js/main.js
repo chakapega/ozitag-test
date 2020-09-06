@@ -10,10 +10,10 @@ const mobileMenuButtonIconClose = document.querySelector(
 const menu = document.querySelector(".menu");
 let isTouchDevice = false;
 
-const setSizeMenu = (orientation) => {
-  if (orientation === "portrait-primary") {
+const setSizeMenu = (screenWidth, orientation) => {
+  if (orientation === "portrait-primary" && screenWidth < 768) {
     menu.style.height = "60%";
-  } else {
+  } else if (orientation === "landscape-primary" && screenWidth < 768) {
     menu.style.height = "70%";
   }
 };
@@ -23,12 +23,20 @@ const sensorDeviceDefinition = () => {
 };
 
 window.onload = () => {
+  const screenWidth = window.innerWidth;
   const orientation = window.screen.orientation.type;
 
-  setSizeMenu(orientation);
+  setSizeMenu(screenWidth, orientation);
 
   isTouchDevice = sensorDeviceDefinition();
 };
+
+window.addEventListener("orientationchange", () => {
+  const screenWidth = window.innerWidth;
+  const orientation = window.screen.orientation.type;
+
+  setSizeMenu(screenWidth, orientation);
+});
 
 menuItemElementTwo.addEventListener("mouseenter", () => {
   if (!isTouchDevice) {
