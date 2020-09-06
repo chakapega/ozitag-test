@@ -10,6 +10,9 @@ const mobileMenuButtonIconClose = document.querySelector(
 const menuButtonElementTwo = document.querySelector(
   ".menu__button-element-two"
 );
+const menuButtonElementFour = document.querySelector(
+  ".menu__button-element-four"
+);
 const menu = document.querySelector(".menu");
 let isTouchDevice = false;
 
@@ -64,9 +67,22 @@ menuButtonElementTwo.addEventListener("click", () => {
     subMenuElementTwo.style.display === ""
   ) {
     subMenuElementTwo.style.display = "flex";
-    menuItemElementTwo.style.height = '292px'
+    menuItemElementTwo.style.height = "292px";
   } else {
     subMenuElementTwo.style.display = "none";
-    menuItemElementTwo.style.height = '42px'
+    menuItemElementTwo.style.height = "42px";
+  }
+});
+
+menuButtonElementFour.addEventListener("click", () => {
+  if (
+    subMenuElementFour.style.display === "none" ||
+    subMenuElementFour.style.display === ""
+  ) {
+    subMenuElementFour.style.display = "flex";
+    menuItemElementFour.style.height = "102px";
+  } else {
+    subMenuElementFour.style.display = "none";
+    menuItemElementFour.style.height = "42px";
   }
 });
