@@ -311,6 +311,10 @@ li {
     padding: 0;
   }
 
+  .sub-menu-element-two__button-element-two_reversed {
+    transform: rotate(180deg);
+  }
+
   .sub-menu-element-two__icon-element-two {
     display: block;
     width: 100%;
@@ -353,6 +357,10 @@ li {
     padding: 0;
   }
 
+  .menu__button-element-two_reversed {
+    transform: rotate(180deg);
+  }
+
   .menu__icon-element-two {
     display: block;
     width: 100%;
@@ -370,6 +378,10 @@ li {
     outline: none;
     border: none;
     padding: 0;
+  }
+
+  .menu__button-element-four_reversed {
+    transform: rotate(180deg);
   }
 
   .menu__icon-element-four {
