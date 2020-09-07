@@ -14,6 +14,15 @@ const menuButtonElementFour = document.querySelector(
   ".menu__button-element-four"
 );
 const menu = document.querySelector(".menu");
+const subMenuElementTwoButtonElementTwo = document.querySelector(
+  ".sub-menu-element-two__button-element-two"
+);
+const subMenuElementTwoItemElementTwo = document.querySelector(
+  ".sub-menu-element-two__item-element-two"
+);
+const subSubMenuElementTwo = document.querySelector(
+  ".sub-sub-menu-element-two"
+);
 let isTouchDevice = false;
 
 const sensorDeviceDefinition = () => {
@@ -53,12 +62,7 @@ mobileMenuButton.addEventListener("click", () => {
   mobileMenuButtonIconClose.classList.toggle(
     "mobile-menu-button-icon-close_hidden"
   );
-
-  if (menu.style.display === "none" || menu.style.display === "") {
-    menu.style.display = "flex";
-  } else {
-    menu.style.display = "none";
-  }
+  menu.classList.toggle("menu_open");
 });
 
 menuButtonElementTwo.addEventListener("click", () => {
@@ -67,7 +71,7 @@ menuButtonElementTwo.addEventListener("click", () => {
     subMenuElementTwo.style.display === ""
   ) {
     subMenuElementTwo.style.display = "flex";
-    menuItemElementTwo.style.height = "292px";
+    menuItemElementTwo.style.height = "294px";
   } else {
     subMenuElementTwo.style.display = "none";
     menuItemElementTwo.style.height = "42px";
@@ -84,5 +88,22 @@ menuButtonElementFour.addEventListener("click", () => {
   } else {
     subMenuElementFour.style.display = "none";
     menuItemElementFour.style.height = "42px";
+  }
+});
+
+subMenuElementTwoButtonElementTwo.addEventListener("click", () => {
+  if (
+    subSubMenuElementTwo.style.display === "none" ||
+    subSubMenuElementTwo.style.display === ""
+  ) {
+    subSubMenuElementTwo.style.display = "flex";
+    subMenuElementTwo.style.height = "378px";
+    subMenuElementTwoItemElementTwo.style.height = "168px";
+    menuItemElementTwo.style.height = "420px";
+  } else {
+    subSubMenuElementTwo.style.display = "none";
+    subMenuElementTwo.style.height = "252px";
+    subMenuElementTwoItemElementTwo.style.height = "42px";
+    menuItemElementTwo.style.height = "294px";
   }
 });
