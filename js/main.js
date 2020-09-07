@@ -20,8 +20,17 @@ const subMenuElementTwoButtonElementTwo = document.querySelector(
 const subMenuElementTwoItemElementTwo = document.querySelector(
   ".sub-menu-element-two__item-element-two"
 );
+const subMenuElementTwoButtonElementFour = document.querySelector(
+  ".sub-menu-element-two__button-element-four"
+);
+const subMenuElementTwoItemElementFour = document.querySelector(
+  ".sub-menu-element-two__item-element-four"
+);
 const subSubMenuElementTwo = document.querySelector(
   ".sub-sub-menu-element-two"
+);
+const subSubMenuElementFour = document.querySelector(
+  ".sub-sub-menu-element-four"
 );
 let isTouchDevice = false;
 
@@ -55,13 +64,59 @@ const subMenuElementFourToggle = () => {
       "menu__button-element-four_reversed"
     );
     subMenuElementFour.style.display = "flex";
-    menuItemElementFour.style.height = "102px";
+    menuItemElementFour.style.height = "126px";
   } else {
     menuButtonElementFour.classList.toggle(
       "menu__button-element-four_reversed"
     );
     subMenuElementFour.style.display = "none";
     menuItemElementFour.style.height = "42px";
+  }
+};
+
+const subSubMenuElementTwoToggle = () => {
+  if (
+    subSubMenuElementTwo.style.display === "none" ||
+    subSubMenuElementTwo.style.display === ""
+  ) {
+    subMenuElementTwoButtonElementTwo.classList.toggle(
+      "sub-menu-element-two__button-element-two_reversed"
+    );
+    subSubMenuElementTwo.style.display = "flex";
+    subMenuElementTwo.style.height = "378px";
+    subMenuElementTwoItemElementTwo.style.height = "168px";
+    menuItemElementTwo.style.height = "420px";
+  } else {
+    subMenuElementTwoButtonElementTwo.classList.toggle(
+      "sub-menu-element-two__button-element-two_reversed"
+    );
+    subSubMenuElementTwo.style.display = "none";
+    subMenuElementTwo.style.height = "252px";
+    subMenuElementTwoItemElementTwo.style.height = "42px";
+    menuItemElementTwo.style.height = "294px";
+  }
+};
+
+const subSubMenuElementFourToggle = () => {
+  if (
+    subSubMenuElementFour.style.display === "none" ||
+    subSubMenuElementFour.style.display === ""
+  ) {
+    subMenuElementTwoButtonElementFour.classList.toggle(
+      "sub-menu-element-two__button-element-four_reversed"
+    );
+    subSubMenuElementFour.style.display = "flex";
+    subMenuElementTwo.style.height = "546px";
+    subMenuElementTwoItemElementFour.style.height = "336px";
+    menuItemElementTwo.style.height = "588px";
+  } else {
+    subMenuElementTwoButtonElementFour.classList.toggle(
+      "sub-menu-element-two__button-element-four_reversed"
+    );
+    subSubMenuElementFour.style.display = "none";
+    subMenuElementTwo.style.height = "252px";
+    subMenuElementTwoItemElementFour.style.height = "42px";
+    menuItemElementTwo.style.height = "294px";
   }
 };
 
@@ -114,24 +169,15 @@ menuButtonElementFour.addEventListener("click", () => {
 });
 
 subMenuElementTwoButtonElementTwo.addEventListener("click", () => {
-  if (
-    subSubMenuElementTwo.style.display === "none" ||
-    subSubMenuElementTwo.style.display === ""
-  ) {
-    subMenuElementTwoButtonElementTwo.classList.toggle(
-      "sub-menu-element-two__button-element-two_reversed"
-    );
-    subSubMenuElementTwo.style.display = "flex";
-    subMenuElementTwo.style.height = "378px";
-    subMenuElementTwoItemElementTwo.style.height = "168px";
-    menuItemElementTwo.style.height = "420px";
-  } else {
-    subMenuElementTwoButtonElementTwo.classList.toggle(
-      "sub-menu-element-two__button-element-two_reversed"
-    );
-    subSubMenuElementTwo.style.display = "none";
-    subMenuElementTwo.style.height = "252px";
-    subMenuElementTwoItemElementTwo.style.height = "42px";
-    menuItemElementTwo.style.height = "294px";
-  }
+  if (subSubMenuElementFour.style.display === "flex")
+    subSubMenuElementFourToggle();
+
+  subSubMenuElementTwoToggle();
+});
+
+subMenuElementTwoButtonElementFour.addEventListener("click", () => {
+  if (subSubMenuElementTwo.style.display === "flex")
+    subSubMenuElementTwoToggle();
+
+  subSubMenuElementFourToggle();
 });
