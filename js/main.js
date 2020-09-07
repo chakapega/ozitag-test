@@ -26,7 +26,9 @@ const subSubMenuElementTwo = document.querySelector(
 let isTouchDevice = false;
 
 const sensorDeviceDefinition = () => {
-  return "ontouchstart" in window;
+  const { innerWidth } = window;
+
+  return "ontouchstart" in window || +innerWidth < 768;
 };
 
 const subMenuElementTwoToggle = () => {

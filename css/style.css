@@ -146,6 +146,10 @@ li {
   display: none;
 }
 
+.sub-menu-element-two__button-element-two {
+  display: none;
+}
+
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .menu {
     margin-left: 12%;
