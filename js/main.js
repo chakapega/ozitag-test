@@ -3,9 +3,9 @@ const menuItemElementFour = document.querySelector(".menu__item-element-four");
 const subMenuElementTwo = document.querySelector(".sub-menu-element-two");
 const subMenuElementFour = document.querySelector(".sub-menu-element-four");
 const mobileMenuButton = document.querySelector(".mobile-menu-button");
-const mobileMenuButtonIcon = document.querySelector(".mobile-menu-button-icon");
+const mobileMenuButtonIcon = document.querySelector(".mobile-menu-button__icon");
 const mobileMenuButtonIconClose = document.querySelector(
-  ".mobile-menu-button-icon-close"
+  ".mobile-menu-button__icon-close"
 );
 const menuButtonElementTwo = document.querySelector(
   ".menu__button-element-two"
@@ -149,9 +149,9 @@ menuItemElementFour.addEventListener("mouseleave", () => {
 });
 
 mobileMenuButton.addEventListener("click", () => {
-  mobileMenuButtonIcon.classList.toggle("mobile-menu-button-icon_hidden");
+  mobileMenuButtonIcon.classList.toggle("mobile-menu-button__icon_hidden");
   mobileMenuButtonIconClose.classList.toggle(
-    "mobile-menu-button-icon-close_hidden"
+    "mobile-menu-button__icon-close_hidden"
   );
   menu.classList.toggle("menu_open");
 });
