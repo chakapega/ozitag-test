@@ -29,6 +29,40 @@ const sensorDeviceDefinition = () => {
   return "ontouchstart" in window;
 };
 
+const subMenuElementTwoToggle = () => {
+  if (
+    subMenuElementTwo.style.display === "none" ||
+    subMenuElementTwo.style.display === ""
+  ) {
+    menuButtonElementTwo.classList.toggle("menu__button-element-two_reversed");
+    subMenuElementTwo.style.display = "flex";
+    menuItemElementTwo.style.height = "294px";
+  } else {
+    menuButtonElementTwo.classList.toggle("menu__button-element-two_reversed");
+    subMenuElementTwo.style.display = "none";
+    menuItemElementTwo.style.height = "42px";
+  }
+};
+
+const subMenuElementFourToggle = () => {
+  if (
+    subMenuElementFour.style.display === "none" ||
+    subMenuElementFour.style.display === ""
+  ) {
+    menuButtonElementFour.classList.toggle(
+      "menu__button-element-four_reversed"
+    );
+    subMenuElementFour.style.display = "flex";
+    menuItemElementFour.style.height = "102px";
+  } else {
+    menuButtonElementFour.classList.toggle(
+      "menu__button-element-four_reversed"
+    );
+    subMenuElementFour.style.display = "none";
+    menuItemElementFour.style.height = "42px";
+  }
+};
+
 window.onload = () => {
   isTouchDevice = sensorDeviceDefinition();
 };
@@ -66,33 +100,15 @@ mobileMenuButton.addEventListener("click", () => {
 });
 
 menuButtonElementTwo.addEventListener("click", () => {
-  if (
-    subMenuElementTwo.style.display === "none" ||
-    subMenuElementTwo.style.display === ""
-  ) {
-    menuButtonElementTwo.classList.toggle("menu__button-element-two_reversed");
-    subMenuElementTwo.style.display = "flex";
-    menuItemElementTwo.style.height = "294px";
-  } else {
-    menuButtonElementTwo.classList.toggle("menu__button-element-two_reversed");
-    subMenuElementTwo.style.display = "none";
-    menuItemElementTwo.style.height = "42px";
-  }
+  if (subMenuElementFour.style.display === "flex") subMenuElementFourToggle();
+
+  subMenuElementTwoToggle();
 });
 
 menuButtonElementFour.addEventListener("click", () => {
-  if (
-    subMenuElementFour.style.display === "none" ||
-    subMenuElementFour.style.display === ""
-  ) {
-    menuButtonElementFour.classList.toggle("menu__button-element-four_reversed");
-    subMenuElementFour.style.display = "flex";
-    menuItemElementFour.style.height = "102px";
-  } else {
-    menuButtonElementFour.classList.toggle("menu__button-element-four_reversed");
-    subMenuElementFour.style.display = "none";
-    menuItemElementFour.style.height = "42px";
-  }
+  if (subMenuElementTwo.style.display === "flex") subMenuElementTwoToggle();
+
+  subMenuElementFourToggle();
 });
 
 subMenuElementTwoButtonElementTwo.addEventListener("click", () => {
