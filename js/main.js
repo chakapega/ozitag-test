@@ -3,7 +3,9 @@ const menuItemElementFour = document.querySelector(".menu__item-element-four");
 const subMenuElementTwo = document.querySelector(".sub-menu-element-two");
 const subMenuElementFour = document.querySelector(".sub-menu-element-four");
 const mobileMenuButton = document.querySelector(".mobile-menu-button");
-const mobileMenuButtonIcon = document.querySelector(".mobile-menu-button__icon");
+const mobileMenuButtonIcon = document.querySelector(
+  ".mobile-menu-button__icon"
+);
 const mobileMenuButtonIconClose = document.querySelector(
   ".mobile-menu-button__icon-close"
 );
@@ -41,37 +43,13 @@ const sensorDeviceDefinition = () => {
 };
 
 const subMenuElementTwoToggle = () => {
-  if (
-    subMenuElementTwo.style.display === "none" ||
-    subMenuElementTwo.style.display === ""
-  ) {
-    menuButtonElementTwo.classList.toggle("menu__button-element-two_reversed");
-    subMenuElementTwo.style.display = "flex";
-    menuItemElementTwo.style.height = "294px";
-  } else {
-    menuButtonElementTwo.classList.toggle("menu__button-element-two_reversed");
-    subMenuElementTwo.style.display = "none";
-    menuItemElementTwo.style.height = "42px";
-  }
+  menuButtonElementTwo.classList.toggle("menu__button-element-two_reversed");
+  subMenuElementTwo.classList.toggle("sub-menu-element-two_hidden");
 };
 
 const subMenuElementFourToggle = () => {
-  if (
-    subMenuElementFour.style.display === "none" ||
-    subMenuElementFour.style.display === ""
-  ) {
-    menuButtonElementFour.classList.toggle(
-      "menu__button-element-four_reversed"
-    );
-    subMenuElementFour.style.display = "flex";
-    menuItemElementFour.style.height = "126px";
-  } else {
-    menuButtonElementFour.classList.toggle(
-      "menu__button-element-four_reversed"
-    );
-    subMenuElementFour.style.display = "none";
-    menuItemElementFour.style.height = "42px";
-  }
+  menuButtonElementFour.classList.toggle("menu__button-element-four_reversed");
+  subMenuElementFour.classList.toggle("sub-menu-element-four_hidden");
 };
 
 const subSubMenuElementTwoToggle = () => {
@@ -83,17 +61,11 @@ const subSubMenuElementTwoToggle = () => {
       "sub-menu-element-two__button-element-two_reversed"
     );
     subSubMenuElementTwo.style.display = "flex";
-    subMenuElementTwo.style.height = "378px";
-    subMenuElementTwoItemElementTwo.style.height = "168px";
-    menuItemElementTwo.style.height = "420px";
   } else {
     subMenuElementTwoButtonElementTwo.classList.toggle(
       "sub-menu-element-two__button-element-two_reversed"
     );
     subSubMenuElementTwo.style.display = "none";
-    subMenuElementTwo.style.height = "252px";
-    subMenuElementTwoItemElementTwo.style.height = "42px";
-    menuItemElementTwo.style.height = "294px";
   }
 };
 
@@ -106,17 +78,11 @@ const subSubMenuElementFourToggle = () => {
       "sub-menu-element-two__button-element-four_reversed"
     );
     subSubMenuElementFour.style.display = "flex";
-    subMenuElementTwo.style.height = "546px";
-    subMenuElementTwoItemElementFour.style.height = "336px";
-    menuItemElementTwo.style.height = "588px";
   } else {
     subMenuElementTwoButtonElementFour.classList.toggle(
       "sub-menu-element-two__button-element-four_reversed"
     );
     subSubMenuElementFour.style.display = "none";
-    subMenuElementTwo.style.height = "252px";
-    subMenuElementTwoItemElementFour.style.height = "42px";
-    menuItemElementTwo.style.height = "294px";
   }
 };
 
@@ -157,13 +123,15 @@ mobileMenuButton.addEventListener("click", () => {
 });
 
 menuButtonElementTwo.addEventListener("click", () => {
-  if (subMenuElementFour.style.display === "flex") subMenuElementFourToggle();
+  if (!subMenuElementFour.classList.contains("sub-menu-element-four_hidden"))
+    subMenuElementFourToggle();
 
   subMenuElementTwoToggle();
 });
 
 menuButtonElementFour.addEventListener("click", () => {
-  if (subMenuElementTwo.style.display === "flex") subMenuElementTwoToggle();
+  if (!subMenuElementTwo.classList.contains("sub-menu-element-two_hidden"))
+    subMenuElementTwoToggle();
 
   subMenuElementFourToggle();
 });
