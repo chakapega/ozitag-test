@@ -53,37 +53,17 @@ const subMenuElementFourToggle = () => {
 };
 
 const subSubMenuElementTwoToggle = () => {
-  if (
-    subSubMenuElementTwo.style.display === "none" ||
-    subSubMenuElementTwo.style.display === ""
-  ) {
-    subMenuElementTwoButtonElementTwo.classList.toggle(
-      "sub-menu-element-two__button-element-two_reversed"
-    );
-    subSubMenuElementTwo.style.display = "flex";
-  } else {
-    subMenuElementTwoButtonElementTwo.classList.toggle(
-      "sub-menu-element-two__button-element-two_reversed"
-    );
-    subSubMenuElementTwo.style.display = "none";
-  }
+  subMenuElementTwoButtonElementTwo.classList.toggle(
+    "sub-menu-element-two__button-element-two_reversed"
+  );
+  subSubMenuElementTwo.classList.toggle("sub-sub-menu-element-two_hidden");
 };
 
 const subSubMenuElementFourToggle = () => {
-  if (
-    subSubMenuElementFour.style.display === "none" ||
-    subSubMenuElementFour.style.display === ""
-  ) {
-    subMenuElementTwoButtonElementFour.classList.toggle(
-      "sub-menu-element-two__button-element-four_reversed"
-    );
-    subSubMenuElementFour.style.display = "flex";
-  } else {
-    subMenuElementTwoButtonElementFour.classList.toggle(
-      "sub-menu-element-two__button-element-four_reversed"
-    );
-    subSubMenuElementFour.style.display = "none";
-  }
+  subMenuElementTwoButtonElementFour.classList.toggle(
+    "sub-menu-element-two__button-element-four_reversed"
+  );
+  subSubMenuElementFour.classList.toggle("sub-sub-menu-element-four_hidden");
 };
 
 window.onload = () => {
@@ -91,27 +71,23 @@ window.onload = () => {
 };
 
 menuItemElementTwo.addEventListener("mouseenter", () => {
-  if (!isTouchDevice) {
+  if (!isTouchDevice)
     subMenuElementTwo.classList.remove("sub-menu-element-two_hidden");
-  }
 });
 
 menuItemElementTwo.addEventListener("mouseleave", () => {
-  if (!isTouchDevice) {
+  if (!isTouchDevice)
     subMenuElementTwo.classList.add("sub-menu-element-two_hidden");
-  }
 });
 
 menuItemElementFour.addEventListener("mouseenter", () => {
-  if (!isTouchDevice) {
+  if (!isTouchDevice)
     subMenuElementFour.classList.remove("sub-menu-element-four_hidden");
-  }
 });
 
 menuItemElementFour.addEventListener("mouseleave", () => {
-  if (!isTouchDevice) {
+  if (!isTouchDevice)
     subMenuElementFour.classList.add("sub-menu-element-four_hidden");
-  }
 });
 
 mobileMenuButton.addEventListener("click", () => {
@@ -137,14 +113,20 @@ menuButtonElementFour.addEventListener("click", () => {
 });
 
 subMenuElementTwoButtonElementTwo.addEventListener("click", () => {
-  if (subSubMenuElementFour.style.display === "flex")
+  if (
+    !subSubMenuElementFour.classList.contains(
+      "sub-sub-menu-element-four_hidden"
+    )
+  )
     subSubMenuElementFourToggle();
 
   subSubMenuElementTwoToggle();
 });
 
 subMenuElementTwoButtonElementFour.addEventListener("click", () => {
-  if (subSubMenuElementTwo.style.display === "flex")
+  if (
+    !subSubMenuElementTwo.classList.contains("sub-sub-menu-element-two_hidden")
+  )
     subSubMenuElementTwoToggle();
 
   subSubMenuElementFourToggle();
